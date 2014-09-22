@@ -272,3 +272,5 @@ augroup END
 
 "set guifont=Ricty_Discord_for_Powerline:h14:cSHIFTJIS
 "set guifontwide=Ricty_Discord:h14:cSHIFTJIS
+
+set scrolloff=7
