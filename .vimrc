@@ -29,6 +29,7 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': ['coffee']}
 NeoBundle 'elzr/vim-json'
 "NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}} 
 NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/thumbnail.vim'
@@ -199,6 +200,13 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+
+let g:syntastic_javascript_checkers = ['jshint'] "JavaScriptのSyntaxチェックはjshintで
+let g:syntastic_check_on_open = 0 "ファイルオープン時にはチェックをしない
+let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
+let g:syntastic_enable_signsu = 1
+
 
 " open the last modified line
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
