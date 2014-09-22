@@ -35,9 +35,9 @@ NeoBundle 'itchyny/thumbnail.vim'
 
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
-
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 't9md/vim-quickhl'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
@@ -217,6 +217,15 @@ let g:user_emmet_settings = {
 \   'lang': 'ja'
 \}
 
+
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+
+nmap <Space>j <Plug>(quickhl-cword-toggle)
+nmap <Space>] <Plug>(quickhl-tag-toggle)
+map H <Plug>(operator-quickhl-manual-this-motion)
 
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
