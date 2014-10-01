@@ -274,3 +274,4 @@ augroup END
 "set guifontwide=Ricty_Discord:h14:cSHIFTJIS
 
 set scrolloff=7
+set lazyredraw
