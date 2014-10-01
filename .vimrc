@@ -276,3 +276,5 @@ augroup END
 
 set scrolloff=7
 set lazyredraw
+set list
+set listchars=tab:^\ ,trail:~,extends:<,precedes:>
