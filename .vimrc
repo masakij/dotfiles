@@ -38,6 +38,7 @@ NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 't9md/vim-quickhl'
 
