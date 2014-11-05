@@ -33,6 +33,14 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'moll/vim-node'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+augroup VimCSS3Syntax
+    autocmd!
+
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
+NeoBundle 'ap/vim-css-color'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/thumbnail.vim'
