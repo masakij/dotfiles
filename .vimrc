@@ -51,6 +51,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 't9md/vim-quickhl'
+NeoBundle "godlygeek/tabular"
+NeoBundle "rcmdnk/vim-markdown"
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
@@ -289,3 +291,10 @@ set scrolloff=7
 set lazyredraw
 set list
 set listchars=tab:^\ ,trail:~,extends:<,precedes:>
+
+" unset initial foldlevel
+let g:vim_markdown_initial_foldlevel=3
+" LaTex math
+let g:vim_markdown_math=1
+" YAML frontmatter
+let g:vim_markdown_frontmatter=1
