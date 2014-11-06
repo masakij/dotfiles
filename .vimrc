@@ -240,11 +240,15 @@ let g:user_emmet_settings = {
 \   'lang': 'ja'
 \}
 
+nnoremap [unite]    <Nop>
+nmap     <Space><Space> [unite]
 
 nmap Hm <Plug>(quickhl-manual-this)
 xmap Hm <Plug>(quickhl-manual-this)
 nmap HM <Plug>(quickhl-manual-reset)
 xmap HM <Plug>(quickhl-manual-reset)
+nnoremap <silent> [unite]c   :<C-u> UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b   :<C-u> Unite buffer<CR>
 
 nmap Hj <Plug>(quickhl-cword-toggle)
 nmap H] <Plug>(quickhl-tag-toggle)
