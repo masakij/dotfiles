@@ -44,6 +44,7 @@ NeoBundle 'ap/vim-css-color'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'vim-scripts/diffchar.vim'
 
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
@@ -291,6 +292,19 @@ set scrolloff=7
 set lazyredraw
 set list
 set listchars=tab:^\ ,trail:~,extends:<,precedes:>
+
+"if &diff
+"    augroup enable_diffchar
+"        autocmd!
+"        autocmd VimEnter * execute "%SDChar"
+"    augroup END
+"endif
+"nnoremap <silent> {} :call <SID>ToggleDiffChar(1, line('$'))<CR>
+"nnoremap <silent> [] :call <SID>ToggleDiffChar(line('.'))<CR>
+"let g:DiffUnit = "Char"
+"let g:DiffColors = 100
+"let g:DiffAlgorithm = "Basic"
+
 
 " unset initial foldlevel
 let g:vim_markdown_initial_foldlevel=3
