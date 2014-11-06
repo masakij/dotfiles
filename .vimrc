@@ -243,16 +243,20 @@ let g:user_emmet_settings = {
 nnoremap [unite]    <Nop>
 nmap     <Space><Space> [unite]
 
-nmap Hm <Plug>(quickhl-manual-this)
-xmap Hm <Plug>(quickhl-manual-this)
-nmap HM <Plug>(quickhl-manual-reset)
-xmap HM <Plug>(quickhl-manual-reset)
 nnoremap <silent> [unite]c   :<C-u> UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b   :<C-u> Unite buffer<CR>
 
-nmap Hj <Plug>(quickhl-cword-toggle)
-nmap H] <Plug>(quickhl-tag-toggle)
-map H <Plug>(operator-quickhl-manual-this-motion)
+nnoremap [quickhl]    <Nop>
+nmap     <Space>h [quickhl]
+
+nmap [quickhl]m <Plug>(quickhl-manual-this)
+xmap [quickhl]m <Plug>(quickhl-manual-this)
+nmap [quickhl]M <Plug>(quickhl-manual-reset)
+xmap [quickhl]M <Plug>(quickhl-manual-reset)
+
+nmap [quickhl]j <Plug>(quickhl-cword-toggle)
+nmap [quickhl]] <Plug>(quickhl-tag-toggle)
+map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
