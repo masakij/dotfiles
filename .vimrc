@@ -20,7 +20,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 " original repos on GitHub
-NeoBundle 'Shougo/vimproc'
+if !has('kaoriya')
+    NeoBundle 'Shougo/vimproc'
+endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle "Shougo/neocomplete"
@@ -104,7 +106,7 @@ set nu
 if !has('gui_running')
     set t_Co=256
 endif
-"set background=dark
+set background=dark
 "colorscheme solarized
 "colorscheme wombat
 "colorscheme landscape
@@ -293,8 +295,8 @@ map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 "autocmd InsertLeave * hi CursorLineNr ctermfg=231 ctermbg=21
 "autocmd InsertLeave * hi LineNr ctermfg=21 ctermbg=231
 "jellybeans
-hi CursorLineNr ctermfg=236 ctermbg=103
-autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103
+hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guibg=#8198bf
+autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guibg=#8198bf
 
 "insert mode's line number solarize=#859900 wombat=#95e454
 "autocmd InsertEnter * hi CursorLineNr ctermfg=15 ctermbg=2 guifg=#859900
@@ -303,7 +305,7 @@ autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103
 "autocmd InsertEnter * hi CursorLineNr ctermfg=231 ctermbg=22
 "autocmd InsertEnter * hi LineNr ctermfg=22 ctermbg=231
 "jellybeans
-autocmd InsertEnter * hi CursorLineNr ctermfg=236 ctermbg=107
+autocmd InsertEnter * hi CursorLineNr ctermfg=236 ctermbg=107 guifg=#30302c guibg=#99ad6a
 
 augroup active_window_cursor_line_nu
     autocmd!
