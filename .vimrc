@@ -1,22 +1,24 @@
-set ts=4 sw=4 sts=4 et
-set encoding=utf-8
-set nu
 "----------------------------------------------------
 " neobundle.vim
 "----------------------------------------------------
-set nocompatible              " be iMproved
-filetype plugin indent off
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
+    set nocompatible               " Be iMproved
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
+" My Bundles here:
 " original repos on GitHub
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
@@ -25,6 +27,8 @@ NeoBundle "Shougo/neocomplete"
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
+
 
 NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
 NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
@@ -80,6 +84,23 @@ endif
 
 " ...
 
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+set ts=4 sw=4 sts=4 et
+set encoding=utf-8
+set nu
+
 if !has('gui_running')
     set t_Co=256
 endif
@@ -91,7 +112,6 @@ colorscheme jellybeans
 set cursorline
 
 syntax on
-filetype plugin indent on     " required!
 
 let g:neomru#time_format = '(%Y/%m/%d %H:%M:%S) '
 
