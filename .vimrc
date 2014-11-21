@@ -145,10 +145,12 @@ let g:lightline = {
     \   'mode': 'MyMode',
     \   'syntastic': 'SyntasticStatuslineFlag'
     \ },
-    \ 'separator': {'left': '〉', 'right': '〈'},
-    \ 'subseparator': {'left': '>', 'right': '<'}
+    \ 'separator': {'left': '⮀', 'right': '⮂'},
+    \ 'subseparator': {'left': '⮁', 'right': '⮃'}
     \ }
 
+"    \ 'separator': {'left': '〉', 'right': '〈'},
+"    \ 'subseparator': {'left': '>', 'right': '<'}
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -159,7 +161,7 @@ function! MyReadonly()
 endfunction
 
 function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
         \  &ft == 'unite' ? unite#get_status_string() :
         \  &ft == 'vimshell' ? vimshell#get_status_string() :
