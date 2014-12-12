@@ -58,8 +58,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 't9md/vim-quickhl'
-NeoBundle "godlygeek/tabular"
-NeoBundle "rcmdnk/vim-markdown"
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'rcmdnk/vim-markdown'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
