@@ -60,6 +60,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
@@ -282,6 +283,7 @@ nmap [quickhl]j <Plug>(quickhl-cword-toggle)
 nmap [quickhl]] <Plug>(quickhl-tag-toggle)
 map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 
+map e <Plug>(easymotion-prefix)
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
 "hi CursorLineNr ctermfg=15 ctermbg=4 guifg=#268bd2
