@@ -327,6 +327,9 @@ set lazyredraw
 set list
 set listchars=tab:^\ ,trail:~,extends:<,precedes:>
 
+" instead of autochdir
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+
 "if &diff
 "    augroup enable_diffchar
 "        autocmd!
