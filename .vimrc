@@ -18,6 +18,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'thinca/vim-singleton'
+
 " My Bundles here:
 " original repos on GitHub
 if !has('kaoriya')
@@ -92,6 +94,7 @@ endif
 " Note: You don't set neobundle setting in .gvimrc!
 
 call neobundle#end()
+call singleton#enable()
 
 " Required:
 filetype plugin indent on
