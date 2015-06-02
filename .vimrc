@@ -18,7 +18,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'thinca/vim-singleton'
+if has('clientserver')
+    NeoBundle 'thinca/vim-singleton'
+endif
 
 " My Bundles here:
 " original repos on GitHub
@@ -94,7 +96,9 @@ endif
 " Note: You don't set neobundle setting in .gvimrc!
 
 call neobundle#end()
-call singleton#enable()
+if exists('*singleton#enable')
+    call singleton#enable()
+endif
 
 " Required:
 filetype plugin indent on
