@@ -338,6 +338,10 @@ set listchars=tab:^\ ,trail:~,extends:<,precedes:>
 " instead of autochdir
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
+" scss -> sass
+au FileType sass setlocal sw=4 sts=4 ts=4 et
+au BufRead,BufNewFile *.scss set filetype=sass
+
 "if &diff
 "    augroup enable_diffchar
 "        autocmd!
