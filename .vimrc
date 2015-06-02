@@ -61,6 +61,7 @@ NeoBundle 't9md/vim-quickhl'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'rhysd/clever-f.vim'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
