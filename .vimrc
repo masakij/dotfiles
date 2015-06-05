@@ -258,7 +258,10 @@ let g:syntastic_enable_signsu = 1
 
 
 " open the last modified line
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
+augroup last_modified_line
+    autocmd!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
+augroup END
 
 "Grunt compile
 function! _compileByGrunt()
@@ -307,7 +310,10 @@ map e <Plug>(easymotion-prefix)
 "autocmd InsertLeave * hi LineNr ctermfg=21 ctermbg=231
 "jellybeans
 hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guibg=#8198bf
-autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guibg=#8198bf
+augroup default_cursorl_line_nu
+    autocmd!
+    autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guibg=#8198bf
+augroup END
 
 "insert mode's line number solarize=#859900 wombat=#95e454
 "autocmd InsertEnter * hi CursorLineNr ctermfg=15 ctermbg=2 guifg=#859900
@@ -316,7 +322,10 @@ autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=103 guifg=#30302c guib
 "autocmd InsertEnter * hi CursorLineNr ctermfg=231 ctermbg=22
 "autocmd InsertEnter * hi LineNr ctermfg=22 ctermbg=231
 "jellybeans
-autocmd InsertEnter * hi CursorLineNr ctermfg=236 ctermbg=107 guifg=#30302c guibg=#99ad6a
+augroup insert_mode_cursor_line_nu
+    autocmd!
+    autocmd InsertEnter * hi CursorLineNr ctermfg=236 ctermbg=107 guifg=#30302c guibg=#99ad6a
+augroup END
 
 augroup active_window_cursor_line_nu
     autocmd!
@@ -337,11 +346,17 @@ set list
 set listchars=tab:^\ ,trail:~,extends:<,precedes:>
 
 " instead of autochdir
-autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+augroup autocd
+    autocmd!
+    autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+augroup END
 
 " scss -> sass
-au FileType sass setlocal sw=4 sts=4 ts=4 et
-au BufRead,BufNewFile *.scss set filetype=sass
+augroup sass_mode
+    autocmd!
+    au FileType sass setlocal sw=4 sts=4 ts=4 et
+    au BufRead,BufNewFile *.scss set filetype=sass
+augroup END
 
 "if &diff
 "    augroup enable_diffchar
