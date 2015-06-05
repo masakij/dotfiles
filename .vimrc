@@ -1,3 +1,5 @@
+set encoding=utf-8
+scriptencoding utf-8
 "----------------------------------------------------
 " neobundle.vim
 "----------------------------------------------------
@@ -109,7 +111,6 @@ NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 set ts=4 sw=4 sts=4 et
-set encoding=utf-8
 set nu
 
 if !has('gui_running')
