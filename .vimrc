@@ -370,8 +370,12 @@ augroup END
 " scss -> sass
 augroup sass_mode
     autocmd!
-    au FileType sass setlocal sw=4 sts=4 ts=4 et
-    au BufRead,BufNewFile *.scss set filetype=sass
+    "au BufRead,BufNewFile *.scss set filetype=sass
+    au FileType scss setlocal filetype=sass
+augroup END
+augroup sass_indent
+    autocmd!
+    au FileType sass setlocal sw=2 sts=2 ts=2 et
 augroup END
 
 "if &diff
