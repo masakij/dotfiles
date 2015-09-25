@@ -293,7 +293,10 @@ nmap     <Space><Space> [unite]
 
 nnoremap <silent> [unite]c   :<C-u> UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b   :<C-u> Unite buffer<CR>
+nnoremap <silent> [unite]/   :<C-u> Unite grep:.<CR>
 nnoremap <silent> [unite]y   :<C-u> Unite history/yank<CR>
+nnoremap <silent> [unite]r   :<C-u> UniteWithProjectDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]m   :<C-u> Unite bookmark file_mru <CR>
 
 
 nnoremap [quickhl]    <Nop>
