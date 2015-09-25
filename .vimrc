@@ -62,6 +62,7 @@ augroup VimCSS3Syntax
     autocmd FileType css setlocal iskeyword+=-
 augroup END
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/thumbnail.vim'
@@ -376,6 +377,14 @@ augroup END
 augroup sass_indent
     autocmd!
     au FileType sass setlocal sw=2 sts=2 ts=2 et
+augroup END
+augroup html_indent
+    autocmd!
+    au FileType html setlocal sw=2 sts=2 ts=2 et
+augroup END
+augroup hbs_indent
+    autocmd!
+    au FileType html.handlebars setlocal sw=2 sts=2 ts=2 et
 augroup END
 
 "if &diff
