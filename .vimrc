@@ -77,6 +77,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'thinca/vim-unite-history'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
