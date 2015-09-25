@@ -63,6 +63,8 @@ augroup VimCSS3Syntax
 augroup END
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'nginx.vim'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/thumbnail.vim'
