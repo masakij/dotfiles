@@ -44,6 +44,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite-outline'
 
 
 NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
