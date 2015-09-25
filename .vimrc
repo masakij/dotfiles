@@ -262,7 +262,7 @@ endif
 
 
 let g:syntastic_javascript_checkers = ['jshint'] "JavaScriptのSyntaxチェックはjshintで
-let g:syntastic_check_on_open = 0 "ファイルオープン時にはチェックをしない
+let g:syntastic_check_on_open = 1 "ファイルオープン時にはチェックを実施
 let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
 let g:syntastic_enable_signsu = 1
 
