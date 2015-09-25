@@ -287,11 +287,14 @@ let g:user_emmet_settings = {
 \   'lang': 'ja'
 \}
 
+let g:unite_source_history_yank_enable = 1
 nnoremap [unite]    <Nop>
 nmap     <Space><Space> [unite]
 
 nnoremap <silent> [unite]c   :<C-u> UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b   :<C-u> Unite buffer<CR>
+nnoremap <silent> [unite]y   :<C-u> Unite history/yank<CR>
+
 
 nnoremap [quickhl]    <Nop>
 nmap     <Space>h [quickhl]
