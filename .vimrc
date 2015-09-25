@@ -27,7 +27,15 @@ endif
 " My Bundles here:
 " original repos on GitHub
 if !has('kaoriya')
-    NeoBundle 'Shougo/vimproc'
+    NeoBundle 'Shougo/vimproc', {
+                \ 'build' : {
+                \     'windows' : 'tools\\update-dll-mingw',
+                \     'cygwin' : 'make -f make_cygwin.mak',
+                \     'mac' : 'make -f make_mac.mak',
+                \     'linux' : 'make',
+                \     'unix' : 'gmake',
+                \    },
+                \ }
 endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
