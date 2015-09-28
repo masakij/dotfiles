@@ -1,0 +1,9 @@
+[include]
+	path = .gitconfig.local
+[user]
+	name = masakij
+[alias]
+	st = status --short --branch
+	graph = log --graph --oneline --decorate
+	flow-feature-start = flow feature start
+	flow-feature-finish = flow feature finish --no-ff -k
