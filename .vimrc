@@ -86,6 +86,9 @@ NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'thinca/vim-unite-history'
+"NeoBundle 'nkzawa/js-inspector.vim'
+"NeoBundleLazy 'heavenshell/vim-jsdoc' , {'autoload': {'filetypes': ['javascript']}}
+NeoBundle 'heavenshell/vim-jsdoc'
 
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
@@ -416,3 +419,6 @@ let g:vim_markdown_frontmatter=1
 
 set hidden
 set showcmd
+"call jsinspector#keymaps()
+let g:jsdoc_allow_input_prompt=1 " show prompt
+"let g:vim_json_syntax_conceal = 0
