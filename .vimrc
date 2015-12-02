@@ -413,3 +413,6 @@ let g:vim_markdown_initial_foldlevel=3
 let g:vim_markdown_math=1
 " YAML frontmatter
 let g:vim_markdown_frontmatter=1
+
+set hidden
+set showcmd
