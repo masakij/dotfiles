@@ -322,6 +322,14 @@ nmap [quickhl]j <Plug>(quickhl-cword-toggle)
 nmap [quickhl]] <Plug>(quickhl-tag-toggle)
 map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 
+"let g:quickhl_manual_colors = [
+"        \ "gui=bold ctermfg=16  ctermbg=153 guifg=#ffffff guibg=#0a7383",
+"        \ "gui=bold ctermfg=7   ctermbg=1   guibg=#a07040 guifg=#ffffff",
+"        \ "gui=bold ctermfg=7   ctermbg=2   guibg=#4070a0 guifg=#ffffff",
+"        \ "gui=bold ctermfg=7   ctermbg=3   guibg=#40a070 guifg=#ffffff",
+"        \ ]
+"
+"
 map e <Plug>(easymotion-prefix)
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
@@ -422,3 +430,4 @@ set showcmd
 "call jsinspector#keymaps()
 let g:jsdoc_allow_input_prompt=1 " show prompt
 "let g:vim_json_syntax_conceal = 0
+"let g:indentLine_noConcealCursor=""
