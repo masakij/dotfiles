@@ -6,6 +6,8 @@
 	ff = false
 [pull]
 	rebase = preserve
+[color]
+	ui = auto
 [alias]
 	st = status --short --branch
 	graph = log --graph --oneline --decorate
