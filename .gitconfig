@@ -1,0 +1,15 @@
+[include]
+	path = .gitconfig.local
+[user]
+	name = masakij
+[merge]
+	ff = false
+[pull]
+	rebase = preserve
+[color]
+	ui = auto
+[alias]
+	st = status --short --branch
+	graph = log --graph --oneline --decorate
+	flow-feature-start = flow feature start
+	flow-feature-finish = flow feature finish --no-ff -k
