@@ -2,6 +2,10 @@
 	path = .gitconfig.local
 [user]
 	name = masakij
+[merge]
+	ff = false
+[pull]
+	rebase = preserve
 [alias]
 	st = status --short --branch
 	graph = log --graph --oneline --decorate
