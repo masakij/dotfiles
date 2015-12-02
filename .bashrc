@@ -119,6 +119,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# completion
+for f in ~/.bash_completion.d/*; do
+    source $f
+done
+
 case $TERM in
   linux) LANG=C;;
   *) LANG=ja_JP.UTF-8;;
