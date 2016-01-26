@@ -330,7 +330,22 @@ map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 "        \ ]
 "
 "
+
+
 map e <Plug>(easymotion-prefix)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
+
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
 "hi CursorLineNr ctermfg=15 ctermbg=4 guifg=#268bd2
