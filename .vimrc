@@ -463,6 +463,9 @@ let g:vim_markdown_frontmatter=1
 
 set hidden
 set showcmd
+set backup
+set modeline
+set modelines=5
 "call jsinspector#keymaps()
 let g:jsdoc_allow_input_prompt=1 " show prompt
 "let g:vim_json_syntax_conceal = 0
