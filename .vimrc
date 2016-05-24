@@ -95,6 +95,7 @@ NeoBundle 'heavenshell/vim-jsdoc'
 "NeoBundle 'vim-scripts/Wombat'
 "NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'mopp/autodirmake.vim'
 
 if has('conceal')
     NeoBundle 'Yggdroot/indentLine'
