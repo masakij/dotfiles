@@ -314,6 +314,12 @@ nnoremap <silent> [unite]y   :<C-u> Unite history/yank<CR>
 nnoremap <silent> [unite]r   :<C-u> UniteWithProjectDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]m   :<C-u> Unite bookmark file_mru <CR>
 
+" unite grepにjvgrepを使う
+if executable('jvgrep')
+    let g:unite_source_grep_command = 'jvgrep'
+    let g:unite_source_grep_default_opts = '-r --exclude "\.git|\.svn|.hg|node_modules"'
+    let g:unite_source_grep_recursive_opt = '-R'
+endif
 
 nnoremap [quickhl]    <Nop>
 nmap     <Space>h [quickhl]
