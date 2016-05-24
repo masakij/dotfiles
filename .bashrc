@@ -137,3 +137,6 @@ eval "$(rbenv init -)"
 export VTE_CJK_WIDTH=1
 
 [[ -s "/home/masaki/.gvm/scripts/gvm" ]] && source "/home/masaki/.gvm/scripts/gvm"
+
+# cannot overwrite
+set -C
