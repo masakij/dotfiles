@@ -47,6 +47,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite-outline'
 
 
+NeoBundle 'kana/vim-submode'
 NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
 NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
 NeoBundle 'elzr/vim-json'
@@ -346,6 +347,16 @@ omap / <Plug>(easymotion-tn)
 "map  n <Plug>(easymotion-next)
 "map  N <Plug>(easymotion-prev)
 
+call submode#enter_with('winmove', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winmove', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winmove', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('winmove', 'n', '', '<C-w>-', '<C-w>-')
+"call submode#leave_with('winmove', 'n', '', '<Esc>') " default: <Esc>
+let g:submode_timeoutlen = 2000 " default: 1000
+call submode#map('winmove', 'n', '', '>', '<C-w>>')
+call submode#map('winmove', 'n', '', '<', '<C-w><')
+call submode#map('winmove', 'n', '', '+', '<C-w>+')
+call submode#map('winmove', 'n', '', '-', '<C-w>-')
 
 "normal mode's line number solarize=#268bd2 wombat=#8ac6f2
 "hi CursorLineNr ctermfg=15 ctermbg=4 guifg=#268bd2
