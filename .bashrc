@@ -138,5 +138,6 @@ export VTE_CJK_WIDTH=1
 
 [[ -s "/home/masaki/.gvm/scripts/gvm" ]] && source "/home/masaki/.gvm/scripts/gvm"
 
+set -o vi
 # cannot overwrite
 set -C
