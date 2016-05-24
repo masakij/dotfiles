@@ -17,7 +17,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=2000
-HISTFILESIZE=4000
+HISTFILESIZE=7000
 
 HISTTIMEFORMAT='%y/%m/%d %H:%M:%S '
 HISTIGNORE=?:??:???:history:clear
