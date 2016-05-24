@@ -20,7 +20,7 @@ HISTSIZE=2000
 HISTFILESIZE=7000
 
 HISTTIMEFORMAT='%y/%m/%d %H:%M:%S '
-HISTIGNORE=?:??:???:history:clear
+HISTIGNORE=?:??:???:history:clear:exit
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
