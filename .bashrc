@@ -120,9 +120,14 @@ if ! shopt -oq posix; then
 fi
 
 # completion
-for f in ~/.bash_completion.d/*; do
+BASH_COMP_D=$HOME/.bash_completion.d
+if [[ -e $BASH_COMP_D/* ]]; then
+  for f in $BASH_COMP_D/*; do
     source $f
-done
+  done
+else
+  mkdir $BASH_COMP_D -p
+fi
 
 case $TERM in
   linux) LANG=C;;
@@ -132,8 +137,10 @@ export TERM=xterm-256color
 
 export EDITOR=vim
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+if [[ -d $HOME/.rbenv ]]; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+fi
 export VTE_CJK_WIDTH=1
 
 [[ -s "/home/masaki/.gvm/scripts/gvm" ]] && source "/home/masaki/.gvm/scripts/gvm"
