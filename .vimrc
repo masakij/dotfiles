@@ -1,138 +1,170 @@
 set encoding=utf-8
 scriptencoding utf-8
-"----------------------------------------------------
-" neobundle.vim
-"----------------------------------------------------
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-if has('vim_starting')
-    set nocompatible               " Be iMproved
+"----------------------------------------------------
+" dein.vim
+"----------------------------------------------------
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" プラグインが実際にインストールされるディレクトリ
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-if has('clientserver')
-    NeoBundle 'thinca/vim-singleton'
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  " Required:
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-" My Bundles here:
-" original repos on GitHub
-if !has('kaoriya')
-    NeoBundle 'Shougo/vimproc', {
-                \ 'build' : {
-                \     'windows' : 'tools\\update-dll-mingw',
-                \     'cygwin' : 'make -f make_cygwin.mak',
-                \     'mac' : 'make -f make_mac.mak',
-                \     'linux' : 'make',
-                \     'unix' : 'gmake',
-                \    },
-                \ }
-endif
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle "Shougo/neocomplete"
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite-outline'
+if dein#load_state(s:dein_dir)
+  " Required:
+  call dein#begin(expand(s:dein_dir))
 
 
-NeoBundle 'kana/vim-submode'
-NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
-NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
-NeoBundle 'elzr/vim-json'
-"NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}} 
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'moll/vim-node'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-augroup VimCSS3Syntax
-    autocmd!
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  "let g:rc_dir    = expand('~/.vim/rc')
+  "let s:toml      = g:rc_dir . '/dein.toml'
+  "let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-    autocmd FileType css setlocal iskeyword+=-
-augroup END
-NeoBundle 'ap/vim-css-color'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'nginx.vim'
+  " TOML を読み込み、キャッシュしておく
+  "call dein#load_toml(s:toml,      {'lazy': 0})
+  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'vim-scripts/diffchar.vim'
-NeoBundle 'chrisbra/BufTimer'
-NeoBundle 'chrisbra/Recover.vim'
-NeoBundle 'AndrewRadev/inline_edit.vim'
-NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'AndrewRadev/sideways.vim'
+  " Let dein manage dein
+  " Required:
+  call dein#add('Shougo/dein.vim')
 
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'thinca/vim-unite-history'
-"NeoBundle 'nkzawa/js-inspector.vim'
-"NeoBundleLazy 'heavenshell/vim-jsdoc' , {'autoload': {'filetypes': ['javascript']}}
-NeoBundle 'heavenshell/vim-jsdoc'
+  " Add or remove your plugins here:
+  if has('clientserver')
+    call dein#add('thinca/vim-singleton')
+  endif
 
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'vim-scripts/Wombat'
-"NeoBundle 'itchyny/landscape.vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'mopp/autodirmake.vim'
-NeoBundle 'Konfekt/FastFold'
+  if !has('kaoriya')
+    call dein#add('Shougo/vimproc', {'build' : 'make'})
+  endif
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add("Shougo/neocomplete")
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/vimfiler')
+  call dein#add('Shougo/vimshell')
+  call dein#add('Shougo/unite-outline')
+  call dein#add('kana/vim-submode')
+  call dein#add('groenewege/vim-less', {
+              \ 'on_ft':  ['less'],
+              \ 'lazy': 1
+  \})
+  call dein#add('kchmck/vim-coffee-script', {
+              \ 'on_ft': ['coffee'],
+              \ 'lazy': 1
+  \})
+  call dein#add('elzr/vim-json')
+  "NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+  call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('moll/vim-node')
+  call dein#add('othree/html5.vim')
+  call dein#add('hail2u/vim-css3-syntax')
 
-if has('conceal')
-    NeoBundle 'Yggdroot/indentLine'
+  call dein#add('ap/vim-css-color')
+  call dein#add('mustache/vim-mustache-handlebars')
+  call dein#add('chase/vim-ansible-yaml')
+  call dein#add('nginx.vim')
+
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('itchyny/thumbnail.vim')
+  call dein#add('vim-scripts/diffchar.vim')
+  call dein#add('chrisbra/BufTimer')
+  call dein#add('chrisbra/Recover.vim')
+  call dein#add('AndrewRadev/inline_edit.vim')
+  call dein#add('dhruvasagar/vim-table-mode')
+  call dein#add('AndrewRadev/sideways.vim')
+
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('gregsexton/gitv')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('t9md/vim-quickhl')
+  call dein#add('godlygeek/tabular')
+  call dein#add('rcmdnk/vim-markdown')
+  call dein#add('easymotion/vim-easymotion')
+  call dein#add('rhysd/clever-f.vim')
+  call dein#add('thinca/vim-unite-history')
+  "call dein#add('nkzawa/js-inspector.vim')
+  "NeoBundleLazy 'heavenshell/vim-jsdoc' , {'autoload': {'filetypes': ['javascript']}}
+  call dein#add('heavenshell/vim-jsdoc')
+
+  "call dein#add('altercation/vim-colors-solarized')
+  "call dein#add('vim-scripts/Wombat')
+  "call dein#add('itchyny/landscape.vim')
+  call dein#add('nanotech/jellybeans.vim')
+  call dein#add('mopp/autodirmake.vim')
+  call dein#add('Konfekt/FastFold')
+
+  if has('conceal')
+    call dein#add('Yggdroot/indentLine')
     "NeoBundleLazy 'Yggdroot/indentLine', { 'autoload' : {
     "    \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
     "    \ }}
     "set list listchars=tab:\|\
     "let g:indentLine_color_term=111
     "let g:indentLine_char='|'
-endif
+  endif
 
-" vim-scripts repos
-"Bundle 'RunView'
-"Bundle 'Changed'
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
+  "
+  " You can specify revision/branch/tag.
+  "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" non-GitHub repos
+  " vim-scripts repos
+  "Bundle 'RunView'
+  "Bundle 'Changed'
 
-" Git repos on your local machine (i.e. when working on your own plugin)
-
-" ...
-
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
-if exists('*singleton#enable')
-    call singleton#enable()
+  " 設定終了
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+
+
+
+augroup VimCSS3Syntax
+    autocmd!
+
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
+
+
+if exists('*singleton#enable')
+    call singleton#enable()
+endif
 
 set ts=4 sw=4 sts=4 et
 set nu
