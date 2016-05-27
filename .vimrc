@@ -29,108 +29,31 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 if dein#load_state(s:dein_dir)
-  " Required:
-  call dein#begin(expand(s:dein_dir))
-
-
   " プラグインリストを収めた TOML ファイル
-  " 予め TOML ファイル（後述）を用意しておく
-  "let g:rc_dir    = expand('~/.vim/rc')
-  "let s:toml      = g:rc_dir . '/dein.toml'
-  "let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-  " TOML を読み込み、キャッシュしておく
-  "call dein#load_toml(s:toml,      {'lazy': 0})
-  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " Let dein manage dein
+  let g:rc_dir = expand('~/.vim/rc')
+  let s:toml = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
   " Required:
-  call dein#add('Shougo/dein.vim')
+  call dein#begin(expand(s:dein_dir), [$MIVIMRC, s:toml, s:toml])
 
-  " Add or remove your plugins here:
-  if has('clientserver')
-    call dein#add('thinca/vim-singleton')
-  endif
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  if !has('kaoriya')
-    call dein#add('Shougo/vimproc', {'build' : 'make'})
-  endif
-  call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add("Shougo/neocomplete")
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/vimfiler')
-  call dein#add('Shougo/vimshell')
-  call dein#add('Shougo/unite-outline')
-  call dein#add('kana/vim-submode')
-  call dein#add('groenewege/vim-less', {
-              \ 'on_ft':  ['less'],
-              \ 'lazy': 1
-  \})
-  call dein#add('kchmck/vim-coffee-script', {
-              \ 'on_ft': ['coffee'],
-              \ 'lazy': 1
-  \})
-  call dein#add('elzr/vim-json')
-  "NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-  call dein#add('jelera/vim-javascript-syntax')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('moll/vim-node')
-  call dein#add('othree/html5.vim')
-  call dein#add('hail2u/vim-css3-syntax')
-
-  call dein#add('ap/vim-css-color')
-  call dein#add('mustache/vim-mustache-handlebars')
-  call dein#add('chase/vim-ansible-yaml')
-  call dein#add('nginx.vim')
-
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('itchyny/thumbnail.vim')
-  call dein#add('vim-scripts/diffchar.vim')
-  call dein#add('chrisbra/BufTimer')
-  call dein#add('chrisbra/Recover.vim')
-  call dein#add('AndrewRadev/inline_edit.vim')
-  call dein#add('dhruvasagar/vim-table-mode')
-  call dein#add('AndrewRadev/sideways.vim')
-
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('gregsexton/gitv')
-  call dein#add('mattn/emmet-vim')
-  call dein#add('t9md/vim-quickhl')
-  call dein#add('godlygeek/tabular')
-  call dein#add('rcmdnk/vim-markdown')
-  call dein#add('easymotion/vim-easymotion')
-  call dein#add('rhysd/clever-f.vim')
-  call dein#add('thinca/vim-unite-history')
   "call dein#add('nkzawa/js-inspector.vim')
-  "NeoBundleLazy 'heavenshell/vim-jsdoc' , {'autoload': {'filetypes': ['javascript']}}
-  call dein#add('heavenshell/vim-jsdoc')
 
   "call dein#add('altercation/vim-colors-solarized')
   "call dein#add('vim-scripts/Wombat')
   "call dein#add('itchyny/landscape.vim')
-  call dein#add('nanotech/jellybeans.vim')
-  call dein#add('mopp/autodirmake.vim')
-  call dein#add('Konfekt/FastFold')
 
-  if has('conceal')
-    call dein#add('Yggdroot/indentLine')
+  "if has('conceal')
+    "call dein#add('Yggdroot/indentLine')
     "NeoBundleLazy 'Yggdroot/indentLine', { 'autoload' : {
     "    \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
     "    \ }}
     "set list listchars=tab:\|\
     "let g:indentLine_color_term=111
     "let g:indentLine_char='|'
-  endif
-
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-  "
-  " You can specify revision/branch/tag.
-  "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  "endif
 
   " vim-scripts repos
   "Bundle 'RunView'
@@ -151,9 +74,6 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
-
-
-
 
 augroup VimCSS3Syntax
     autocmd!
