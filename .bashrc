@@ -134,16 +134,29 @@ case $TERM in
   *) LANG=ja_JP.UTF-8;;
 esac
 export TERM=xterm-256color
+export VTE_CJK_WIDTH=1
 
 export EDITOR=vim
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+NODEBREW_ROOT=$HOME/.nodebrew
+if [[ -d $NODEBREW_ROOT ]]; then
+  :
+else
+  curl -L git.io/nodebrew | perl - setup
+fi
+export PATH=$NODEBREW_ROOT/current/bin:$PATH
+
 if [[ -d $HOME/.rbenv ]]; then
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
 fi
-export VTE_CJK_WIDTH=1
 
-[[ -s "/home/masaki/.gvm/scripts/gvm" ]] && source "/home/masaki/.gvm/scripts/gvm"
+if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
+  :
+else
+  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+fi
+source "$HOME/.gvm/scripts/gvm"
 
 set -o vi
 # cannot overwrite
