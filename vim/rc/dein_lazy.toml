@@ -94,8 +94,8 @@ depends = 'neomru.vim'
 #        \  -no-start-insert -force-redraw<CR>
 #'''
 
-#[[plugins]]
-#repo = 'Shougo/context_filetype.vim'
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 #[[plugins]]
 #repo = 'Shougo/neossh.vim'
