@@ -1,5 +1,7 @@
+"vi: ts=2 sw=2 sts=2 et
 set encoding=utf-8
 scriptencoding utf-8
+set ts=2 sw=2 sts=2 et
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -86,7 +88,6 @@ if exists('*singleton#enable')
     call singleton#enable()
 endif
 
-set ts=4 sw=4 sts=4 et
 set nu
 
 if !has('gui_running')
