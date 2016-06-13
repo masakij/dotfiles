@@ -1,0 +1,3 @@
+$if mode=vi
+set show-mode-in-prompt on
+$endif
