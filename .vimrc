@@ -311,7 +311,7 @@ map e <Plug>(easymotion-prefix)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
-map  / <Plug>(easymotion-sn)
+"map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.

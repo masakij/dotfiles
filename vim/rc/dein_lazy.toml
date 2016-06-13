@@ -410,7 +410,7 @@ hook_post_source = 'FastFoldUpdate'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-#on_map = {n = '<Plug>'}
+on_map = {n = '<Plug>'}
 #hook_add = '''
 #  nmap w <Plug>(easymotion-lineforward)
 #  nnoremap W     w
