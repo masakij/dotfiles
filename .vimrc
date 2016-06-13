@@ -228,10 +228,19 @@ if has('conceal')
 endif
 
 
-let g:syntastic_javascript_checkers = ['jshint'] "JavaScriptのSyntaxチェックはjshintで
+let g:syntastic_javascript_checkers = ['eslint'] "JavaScriptのSyntaxチェックはeslintで (globalにeslint pluginも入れる)
 let g:syntastic_check_on_open = 1 "ファイルオープン時にはチェックを実施
 let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
+let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signsu = 1
+"let g:syntastic_debug = 30
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_aggregate_errors = 1
 
 
 " open the last modified line
