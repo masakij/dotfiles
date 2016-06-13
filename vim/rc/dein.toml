@@ -24,9 +24,16 @@ repo = 'hail2u/vim-css3-syntax'
 #[[plugins]]
 #repo = 'Shougo/unite-sudo'
 
-#[[plugins]]
-#repo = 'mxw/vim-jsx'
-#on_ft = 'javascript'
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]] # jsx syntax highlight & indent
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+hook_add = '''
+let g:jsx_ext_required = 0
+'''
 
 #[[plugins]]
 #repo = 'itchyny/vim-haskell-indent'
@@ -40,9 +47,9 @@ repo = 'hail2u/vim-css3-syntax'
 #repo = 'shawncplus/phpcomplete.vim'
 #on_ft = 'php'
 
-#[[plugins]]
-#repo = 'jiangmiao/simple-javascript-indenter'
-#on_ft = 'javascript'
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = 'javascript'
 
 #[[plugins]]
 #repo = 'thinca/vim-ft-diff_fold'
@@ -90,10 +97,10 @@ on_ft = 'json'
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown', 'mkd']
 
-#[[plugins]]
-#repo = 'marijnh/tern_for_vim'
-#on_ft = 'javascript'
-#build = 'npm install'
+[[plugins]] # completion
+repo = 'marijnh/tern_for_vim'
+on_ft = 'javascript'
+build = 'npm install'
 
 #[[plugins]]
 #repo = 'vim-ruby/vim-ruby'
