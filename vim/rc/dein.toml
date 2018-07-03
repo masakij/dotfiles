@@ -124,9 +124,9 @@ repo = 'Shougo/neosnippet-snippets'
 #repo = 'ujihisa/vimshell-ssh'
 #on_ft = 'vimshell'
 
-#[[plugins]]
-#repo = 'Shougo/unite-help'
-#on_source = 'unite.vim'
+[[plugins]]
+repo = 'Shougo/unite-help'
+on_source = 'unite.vim'
 
 #[[plugins]]
 #repo = 'mattn/webapi-vim'
@@ -238,3 +238,10 @@ repo = 'mopp/autodirmake.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 if = "has('conceal')"
+
+[[plugin]]
+repo = 'scrooloose/syntastic'
+
+[[plugin]]
+repo = 'mtscout6/syntastic-local-eslint'
+on_ft = 'javascript'
