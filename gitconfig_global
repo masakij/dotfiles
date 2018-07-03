@@ -1,5 +1,5 @@
 [user]
-  name = jun masaki
+  name = masakij
   email = masakij@users.noreply.github.com
 [alias]
   unstage = reset -q HEAD --
@@ -30,9 +30,10 @@
   amend = commit --amend
   back = checkout "-"
   contributors = shortlog -s -n
-  filetrail = git log --follow -p -w
+  filetrail = log --follow -p -w
   mergetrail = log --ancestry-path --merges
   unmerged = diff --name-only --diff-filter=U
+  st = status -sbu
 [blame]
   date = relative
 [push]
@@ -41,7 +42,5 @@
   editor = vim
   precomposeunicode = true
   excludesfile = ~/gitignore_global
-[credential]
-  helper = osxkeychain
 [merge]
   conflictstyle = diff3
