@@ -37,7 +37,8 @@ on_ft = 'snippet'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
+depends = ['vim-devicons', 'neomru.vim']
+on_if = 1
 #hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 #hook_add = '''
 #  nnoremap <silent> ;b
@@ -446,3 +447,10 @@ on_ft =  ['less']
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 on_ft = ['coffee']
+[[plugins]]
+repo = 'flowtype/vim-flow'
+on_ft = ['javascript']
+hook_add = '''
+  let g:flow#autoclose = 1
+  let g:flow#omnifunc = 0
+'''

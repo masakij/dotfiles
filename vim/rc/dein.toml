@@ -8,6 +8,9 @@ if = "!has('kaoriya')"
 build = 'make'
 
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
 repo = 'thinca/vim-unite-history'
 on_source = 'unite.vim'
 
@@ -24,16 +27,38 @@ repo = 'hail2u/vim-css3-syntax'
 #[[plugins]]
 #repo = 'Shougo/unite-sudo'
 
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
 
-[[plugins]] # jsx syntax highlight & indent
-repo = 'mxw/vim-jsx'
-on_ft = 'javascript'
-hook_add = '''
-let g:jsx_ext_required = 0
-'''
+#[[plugins]]
+#repo = 'pangloss/vim-javascript'
+#on_ft = 'javascript'
+#hook_add = '''
+#let g:javascript_plugin_jsdoc = 1
+#let g:javascript_plugin_flow = 1
+#'''
+
+#[[plugins]] # jsx syntax highlight & indent
+#repo = 'mxw/vim-jsx'
+#on_ft = 'javascript'
+#hook_add = '''
+#let g:jsx_ext_required = 0
+#'''
+
+#[[plugins]] # jsx syntax highlight & indent
+#repo = 'maxmellon/vim-jsx-pretty'
+#depends = ['pangloss/vim-javascript']
+#on_ft = 'javascript'
+#hook_add = '''
+#let g:vim_jsx_pretty_enable_jsx_highlight = 1
+#let g:vim_jsx_pretty_colorful_config = 1
+#'''
+
+
+#[[plugins]]
+#repo = 'othree/es.next.syntax.vim'
+#on_ft = 'javascript'
+#[[plugins]]
+#repo = 'othree/javascript-libraries-syntax.vim'
+#on_ft = 'javascript'
 
 #[[plugins]]
 #repo = 'itchyny/vim-haskell-indent'
@@ -47,9 +72,9 @@ let g:jsx_ext_required = 0
 #repo = 'shawncplus/phpcomplete.vim'
 #on_ft = 'php'
 
-[[plugins]]
-repo = 'jiangmiao/simple-javascript-indenter'
-on_ft = 'javascript'
+#[[plugins]]
+#repo = 'jiangmiao/simple-javascript-indenter'
+#on_ft = 'javascript'
 
 #[[plugins]]
 #repo = 'thinca/vim-ft-diff_fold'
@@ -97,10 +122,10 @@ on_ft = 'json'
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown', 'mkd']
 
-[[plugins]] # completion
-repo = 'marijnh/tern_for_vim'
-on_ft = 'javascript'
-build = 'npm install'
+#[[plugins]] # completion
+#repo = 'marijnh/tern_for_vim'
+#on_ft = 'javascript'
+#build = 'npm install'
 
 #[[plugins]]
 #repo = 'vim-ruby/vim-ruby'
@@ -124,16 +149,16 @@ repo = 'Shougo/neosnippet-snippets'
 #repo = 'ujihisa/vimshell-ssh'
 #on_ft = 'vimshell'
 
-[[plugins]]
-repo = 'Shougo/unite-help'
-on_source = 'unite.vim'
+#[[plugins]]
+#repo = 'Shougo/unite-help'
+#on_source = 'unite.vim'
 
 #[[plugins]]
 #repo = 'mattn/webapi-vim'
 
-[[plugins]]
-repo = 'jelera/vim-javascript-syntax'
-on_ft = 'javascript'
+#[[plugins]]
+#repo = 'jelera/vim-javascript-syntax'
+#on_ft = 'javascript'
 
 #[[plugins]]
 #repo = 'JesseKPhillips/d.vim'
@@ -239,9 +264,5 @@ repo = 'mopp/autodirmake.vim'
 repo = 'Yggdroot/indentLine'
 if = "has('conceal')"
 
-[[plugin]]
-repo = 'scrooloose/syntastic'
-
-[[plugin]]
-repo = 'mtscout6/syntastic-local-eslint'
-on_ft = 'javascript'
+[[plugins]]
+repo = 'neomake/neomake'

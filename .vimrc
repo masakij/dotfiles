@@ -77,6 +77,21 @@ endif
 
 "End dein Scripts-------------------------
 
+" Specify a directory for plugins (for Neovim: ~/.local/"share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'othree/yajs.vim'
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'othree/es.next.syntax.vim'
+Plug 'jparise/vim-graphql'
+" Add plugins to &runtimepath
+call plug#end()
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:webdevicons_enable_unite = 1
+
 augroup VimCSS3Syntax
     autocmd!
 
@@ -118,7 +133,7 @@ let g:lightline = {
     \     ['fugitive', 'gitgutter', 'filename'],
     \   ],
     \   'right': [
-    \     ['lineinfo', 'syntastic'],
+    \     ['lineinfo'],
     \     ['percent'],
     \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
     \   ]
@@ -132,12 +147,13 @@ let g:lightline = {
     \   'filetype': 'MyFiletype',
     \   'fileencoding': 'MyFileencoding',
     \   'mode': 'MyMode',
-    \   'syntastic': 'SyntasticStatuslineFlag'
     \ },
     \ 'separator': {'left': '⮀', 'right': '⮂'},
     \ 'subseparator': {'left': '⮁', 'right': '⮃'}
     \ }
 
+"    \     ['lineinfo', 'syntastic'],
+"    \   'syntastic': 'SyntasticStatuslineFlag'
 "    \ 'separator': {'left': '〉', 'right': '〈'},
 "    \ 'subseparator': {'left': '>', 'right': '<'}
 
@@ -169,11 +185,11 @@ function! MyFugitive()
 endfunction
 
 function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
 function! MyFileencoding()
@@ -228,31 +244,36 @@ if has('conceal')
 endif
 
 
-let g:syntastic_javascript_checkers = ['eslint'] "JavaScriptのSyntaxチェックはeslintで (globalにeslint pluginも入れる)
-let g:syntastic_check_on_open = 1 "ファイルオープン時にはチェックを実施
-let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signsu = 1
+"let g:syntastic_javascript_checkers = ['eslint', 'flow'] "JavaScriptのSyntaxチェックはeslintで (globalにeslint pluginも入れる)
+"let g:syntastic_check_on_open = 1 "ファイルオープン時にはチェックを実施
+"let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_enable_signsu = 1
 "let g:syntastic_debug = 30
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_aggregate_errors = 1
-" エラー行に sign を表示
-"let g:syntastic_enable_signs = 1
-" location list を常に更新
-let g:syntastic_always_populate_loc_list = 0
-" location list を常に表示
-let g:syntastic_auto_loc_list = 0
-" ファイルを開いた時にチェックを実行する
-let g:syntastic_check_on_open = 1
-" :wq で終了する時もチェックする
-let g:syntastic_check_on_wq = 0
-function! StrTrim(txt)
-      return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-endfunction
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-whiclh eslint'))
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_aggregate_errors = 1
+
+autocmd! BufWritePost,BufReadPost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
+let g:neomake_open_list = 2
+let g:neomake_list_height = 5
+let g:neomake_error_sign = {'text': '✖', 'texthl': 'Error'}
+let g:neomake_warning_sign = {
+    \   'text': '>>',
+    \   'texthl': 'Todo',
+    \ }
+"augroup my_error_signs
+"  au!
+"  autocmd ColorScheme *
+"    \ hi NeomakeErrorSign term=underline cterm=underline ctermfg=167 ctermbg=52
+"    \ hi NeomakeWarningSign ctermfg=yellow
+"augroup END
 
 
 " open the last modified line
