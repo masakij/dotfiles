@@ -3,6 +3,13 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 if = "!has('kaoriya')"
 build = 'make'
@@ -215,7 +222,7 @@ repo = 'mustache/vim-mustache-handlebars'
 [[plugins]]
 repo = 'chase/vim-ansible-yaml'
 [[plugins]]
-repo = 'nginx.vim'
+repo = 'vim-scripts/nginx.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'

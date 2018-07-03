@@ -148,14 +148,16 @@ let g:lightline = {
     \   'fileencoding': 'MyFileencoding',
     \   'mode': 'MyMode',
     \ },
-    \ 'separator': {'left': '⮀', 'right': '⮂'},
-    \ 'subseparator': {'left': '⮁', 'right': '⮃'}
+    \ 'separator': {'left': '', 'right': ''},
+    \ 'subseparator': {'left': '', 'right': ''}
     \ }
 
 "    \     ['lineinfo', 'syntastic'],
 "    \   'syntastic': 'SyntasticStatuslineFlag'
 "    \ 'separator': {'left': '〉', 'right': '〈'},
 "    \ 'subseparator': {'left': '>', 'right': '<'}
+"    \ 'separator': {'left': '⮀', 'right': '⮂'},
+"    \ 'subseparator': {'left': '⮁', 'right': '⮃'}
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -231,12 +233,12 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: "\<TAB>"
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -250,6 +252,7 @@ endif
 "let g:syntastic_check_on_wq = 0
 "let g:syntastic_enable_signsu = 1
 "let g:syntastic_debug = 30
+
 set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -279,7 +282,7 @@ let g:neomake_warning_sign = {
 " open the last modified line
 augroup last_modified_line
     autocmd!
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
 augroup END
 
 "Grunt compile
@@ -317,13 +320,15 @@ if executable('jvgrep')
     let g:unite_source_grep_recursive_opt = '-R'
 endif
 
-nnoremap [quickhl]    <Nop>
-nmap     <Space>h [quickhl]
+noremap [quickhl]    <Nop>
+map     <Space>h [quickhl]
 
 nmap [quickhl]m <Plug>(quickhl-manual-this)
 xmap [quickhl]m <Plug>(quickhl-manual-this)
 nmap [quickhl]M <Plug>(quickhl-manual-reset)
 xmap [quickhl]M <Plug>(quickhl-manual-reset)
+nmap [quickhl]c <Plug>(quickhl-manual-clear)
+xmap [quickhl]c <Plug>(quickhl-manual-clear)
 
 nmap [quickhl]j <Plug>(quickhl-cword-toggle)
 nmap [quickhl]] <Plug>(quickhl-tag-toggle)
@@ -336,6 +341,8 @@ map [quickhl] <Plug>(operator-quickhl-manual-this-motion)
 "        \ "gui=bold ctermfg=7   ctermbg=3   guibg=#40a070 guifg=#ffffff",
 "        \ ]
 "
+"
+
 
 map e <Plug>(easymotion-prefix)
 
